@@ -12,12 +12,12 @@ class MovieFixture extends Fixture
     {
         for ($i = 0; $i < 20; $i++) {
         $movie = new Movie();
-        $movie->setImdbId(base64_encode(random_bytes(5)));
-        $movie->setTitle(base64_encode(random_bytes(10)));
-        $movie->setImage('https://images.pexels.com/photos/3825280/pexels-photo-3825280.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
-        $movie->setKeywords('love,war,chage');
-        $movie->setRuntime('240');
-        $movie->setReleaseDate('2010-07-16');
+        $movie->setImdbId('tt0068646');
+        $movie->setTitle('The GodFather');
+        $movie->setImage('https://imdb-api.com/images/original/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.7046_AL_.jpg');
+        $movie->setKeywords('crime family,mafia,patriarch,organized crime,gambling syndicate');
+        $movie->setRuntime('175');
+        $movie->setReleaseDate('1972-03-24');
         $manager->persist($movie);
         }
         $manager->flush();
