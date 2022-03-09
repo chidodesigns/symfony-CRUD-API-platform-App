@@ -1,10 +1,10 @@
 import React from "react";
 
 function Homepage() {
+
   return (
     <div>
-      <h1>A List Of Movies From The Database</h1>
-
+      <h1>A List Of Movies From The Database </h1>
       <div className="card-group">
         <div className="card">
           <img src="..." className="card-img-top" alt="..." />
@@ -36,6 +36,8 @@ function Homepage() {
       </div>
     </div>
   );
+
+
 }
 
 export default Homepage;
