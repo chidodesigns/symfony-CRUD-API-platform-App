@@ -4,10 +4,17 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\MovieRepository;
+use Symfony\Component\Validator\Constraints as Assert; // Symfony's built-in constraints
+
+
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *      collectionOperations={"get", "post"},
+ *      itemOperations={"get", "put", "delete"}
+ * )
  * @ORM\Entity(repositoryClass=MovieRepository::class)
  */
 class Movie
@@ -21,11 +28,18 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $imdb_id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min=2,
+     *      max=50,
+     *      maxMessage="Describe your movie title in 50 chars or less"
+     * )
      */
     private $title;
 
@@ -36,16 +50,19 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=555)
+     * @Assert\NotBlank
      */
     private $keywords;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $runtime;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $release_date;
 
