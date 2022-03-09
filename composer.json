@@ -88,6 +88,7 @@
         "symfony/css-selector": "4.4.*",
         "symfony/phpunit-bridge": "^6.0",
         "symfony/stopwatch": "4.4.*",
-        "symfony/web-profiler-bundle": "4.4.*"
+        "symfony/web-profiler-bundle": "4.4.*",
+        "symfony/webpack-encore-bundle": "^1.14"
     }
 }
