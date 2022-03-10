@@ -11,7 +11,7 @@ function Header() {
 
   const appInfoContext = useContext(AppContext)
 
-  const {movieListings, AppStateMessage, errorMessage, searchFieldFailure, searchFieldSuccess} = appInfoContext
+  const {movieListings, errorMessage, searchFieldFailure, searchFieldSuccess} = appInfoContext
 
   useEffect(() => {
 
@@ -26,6 +26,13 @@ function Header() {
     const enteredSearchText = searchInputRef.current.value
     appInfoContext.searchForMovie(enteredSearchText)
   }
+
+  if(errorMessage || searchFieldFailure){
+      return (
+          <h1>{errorMessage}</h1>
+      )
+  }
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,7 +63,7 @@ function Header() {
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search Movies"
+                placeholder="Find Public Movies"
                 aria-label="Search"
                 ref={searchInputRef}
               />

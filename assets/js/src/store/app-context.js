@@ -23,6 +23,7 @@ export function AppContextProvider(props)
         //  Reset State
         setMovieList([])
         setSearchSuccess(null)
+        setAppMsg(null)
 
         fetch(`https://imdb-api.com/en/API/SearchMovie/${process.env.IMDB_API_KEY}/${searchTerm}`,{
             method: 'GET',
@@ -36,7 +37,7 @@ export function AppContextProvider(props)
                 response.json().then((data) => {
                     // console.log(data)
                     if(data.results.length > 0){
-                        setMovieList(data)
+                        setMovieList(data.results)
                     }else{
                         setAppMsg('No movie title results with your search term:' + data.expression)
                     }
@@ -60,6 +61,7 @@ export function AppContextProvider(props)
         searchFieldSuccess: searchSuccess,
         searchFieldFailure: searchFailed,
         errorMessage: errorMsg,
+        AppStateMessage: appMsg,
         searchForMovie: searchForMovieHandler
     }
 
