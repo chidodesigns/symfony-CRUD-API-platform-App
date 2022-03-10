@@ -16,8 +16,9 @@ function app() {
         <div className='container main-wrapper-container'>
         <Switch>
             <Route path='/' exact>
-                <MovieSearchResultsPage/>
+                <Homepage/>
             </Route>
+            <Route path='/search/:searchTerm' component={MovieSearchResultsPage}></Route>
         </Switch>
         </div>
         <Footer/>

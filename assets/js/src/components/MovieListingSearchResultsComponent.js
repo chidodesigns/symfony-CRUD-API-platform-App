@@ -2,17 +2,17 @@ import React from "react";
 
 function MovieListingSearchResultsComponent(props) {
   return (
-    <div class="card" style={{width: '18rem'}}>
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Movie title</h5>
+    <div className="card" style={{width: '18rem'}}>
+      <img src="..." className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">Movie title</h5>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Movie Description:</li>
-        <li class="list-group-item">Movie ID:</li>
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">Movie Description:</li>
+        <li className="list-group-item">Movie ID:</li>
       </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">
+      <div className="card-body">
+        <a href="#" className="card-link">
           View Movie
         </a>
       </div>

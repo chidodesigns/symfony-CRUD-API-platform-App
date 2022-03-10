@@ -1,9 +1,31 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
+import React, {useRef, useContext, useEffect} from "react";
+import { useHistory,Link, NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 
+import AppContext from "../../store/app-context";
+
 function Header() {
+ const history = useHistory()
+  //    Form Input Ref 
+  const searchInputRef = useRef();
+
+  const appInfoContext = useContext(AppContext)
+
+  const {movieListings, AppStateMessage, errorMessage, searchFieldFailure, searchFieldSuccess} = appInfoContext
+
+  useEffect(() => {
+
+    if(searchFieldSuccess && movieListings){
+        history.replace('/search/'+movieListings.expression)
+    }
+
+  }, [searchFieldSuccess, movieListings])
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const enteredSearchText = searchInputRef.current.value
+    appInfoContext.searchForMovie(enteredSearchText)
+  }
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,12 +52,13 @@ function Header() {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={submitHandler}>
               <input
                 className="form-control me-2"
                 type="search"
                 placeholder="Search Movies"
                 aria-label="Search"
+                ref={searchInputRef}
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
