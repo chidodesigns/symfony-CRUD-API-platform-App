@@ -17,6 +17,7 @@ function Header() {
 
     if(searchFieldSuccess){
         history.replace('/search/'+searchInputRef.current.value)
+        searchInputRef.current.value =''
     }
 
   }, [searchFieldSuccess, movieListings])
