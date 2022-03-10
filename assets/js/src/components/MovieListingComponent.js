@@ -1,23 +1,31 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
+import {useHistory} from 'react-router-dom'
 import AppContext from "../store/app-context";
 import './MovieListingComponent.module.css'
 
 function MovieListingComponent(props) {
-
+  const history = useHistory()
   const appInfoContext = useContext(AppContext);
+  const {movieInDB} = appInfoContext
 
-  const movieDtoToAddToDB = {
-    imdbId: props.imdbId,
-    title: props.title,
-    image: props.image,
-    keywords: props.keywords,
-    runtime: props.runtime,
-    releaseDate: props.releaseDate 
-  }
+   useEffect(() => {
 
-  console.log(movieDtoToAddToDB)
+    if(movieInDB){
+      history.replace('/')
+    }
+
+   }, [movieInDB])
 
   const addToDatabaseHandler = () => {
+
+    const movieDtoToAddToDB = {
+      imdbId: props.imdbId,
+      title: props.title,
+      image: props.image,
+      keywords: props.keywords,
+      runtime: props.runtime,
+      releaseDate: props.releaseDate 
+    }
     appInfoContext.addMovieToDatabase(movieDtoToAddToDB)
   }
 

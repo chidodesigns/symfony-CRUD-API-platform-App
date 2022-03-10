@@ -3,6 +3,10 @@ body {
     color: #000;
 }
 
+a{
+    text-decoration: none;
+}
+
 .main-wrapper-container{
-    height: 100vh;
+    height: 150vh;
 }

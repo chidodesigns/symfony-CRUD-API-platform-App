@@ -13,7 +13,7 @@ function MovieListingSearchResultsComponent(props) {
         <li className="list-group-item">Movie ID: {props.movieId}</li>
       </ul>
       <div className="card-body">
-        <Link to={`/movie-listing/${props.movieId}`} className="card-link">
+        <Link to={`/movie-listing/${props.movieId}`} className="card-link btn btn-primary">
           View Movie
         </Link>
       </div>
