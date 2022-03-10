@@ -2,3 +2,7 @@ body {
     background-color: lightgray;
     color: #000;
 }
+
+.main-wrapper-container{
+    height: 100vh;
+}
