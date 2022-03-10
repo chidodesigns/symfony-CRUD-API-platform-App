@@ -15,8 +15,8 @@ function Header() {
 
   useEffect(() => {
 
-    if(searchFieldSuccess && movieListings){
-        history.replace('/search/'+movieListings.expression)
+    if(searchFieldSuccess){
+        history.replace('/search/'+searchInputRef.current.value)
     }
 
   }, [searchFieldSuccess, movieListings])
@@ -37,9 +37,9 @@ function Header() {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            IMDB API
-          </a>
+          <Link className="navbar-brand" to="/">
+            MOD
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -54,9 +54,9 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Movie Listings
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="d-flex" onSubmit={submitHandler}>

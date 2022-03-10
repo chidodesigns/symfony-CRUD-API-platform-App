@@ -1,39 +1,28 @@
 import React from "react";
+import classes from './MovieListingComponent.module.css'
 
 function MovieListingComponent(props) {
   return (
-    <div className="d-flex h-100 text-center text-white bg-dark">
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-          <div>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-              <a class="nav-link active" aria-current="page" href="#">
-                IMDB ID
-              </a>
-              <a class="nav-link" href="#">
-                Release Date
-              </a>
-              <a class="nav-link" href="#">
-                RunTime
-              </a>
-            </nav>
-          </div>
-        </header>
 
-        <main class="px-3">
-          <h1>Movie Title</h1>
-          <p class="lead">
-           Plot Description
-          </p>
-          <p class="lead">
-            <a
-              href="#"
-              class="btn btn-lg btn-secondary fw-bold border-white bg-white"
-            >
-             Delete From Database
-            </a>
-          </p>
-        </main>
+    <div className="row align-items-md-stretch">
+      <div className="col-md-6">
+        <div className="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>{props.title}</h2>
+          {props.plot &&
+          <p>{props.plot}</p>
+          }
+          <hr/>
+          <p>Runtime: {props.runtime} mins</p>
+          <p>Release Date: {props.releaseDate}</p>
+          <p>Keywords: {props.keywords}</p>
+          {props.addToDb && <button className="btn btn-outline-light" type="button">Add To Database</button>}
+          <p>IMDB ID:{props.id}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div className={`h-100 p-5 bg-light border rounded-3 movie_listing_img_holder d-flex justify-content-center`}>
+          <img src={props.image} className="movie-listing-img"/>
+        </div>
       </div>
     </div>
   );

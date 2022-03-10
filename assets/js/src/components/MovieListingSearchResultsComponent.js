@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function MovieListingSearchResultsComponent(props) {
   return (
@@ -12,9 +13,9 @@ function MovieListingSearchResultsComponent(props) {
         <li className="list-group-item">Movie ID: {props.movieId}</li>
       </ul>
       <div className="card-body">
-        <a href="#" className="card-link">
+        <Link to={`/movie-listing/${props.movieId}`} className="card-link">
           View Movie
-        </a>
+        </Link>
       </div>
     </div>
   );

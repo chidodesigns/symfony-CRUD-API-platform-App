@@ -6,12 +6,10 @@ function MovieSearchResultsPage() {
   const appInfoContext = useContext(AppContext);
   const { movieListings, AppStateMessage } = appInfoContext;
 
-  console.log(movieListings)
-
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-  
+    
     if(movieListings.length > 0 || AppStateMessage){
        setIsLoading(false)
     }
