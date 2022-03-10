@@ -10,7 +10,8 @@ const AppContext = createContext({
     AppStateMessage: '',
     errorMessage: '',
     searchForMovieHandler: (searchTerm) => {},
-    getMovieFromThirdPartyApiHandler: (imdb) => {}
+    getMovieFromThirdPartyApiHandler: (imdb) => {},
+    addMovieToDatabaseHandler: (movieDto) => {}
 })
 
 export function AppContextProvider(props)
@@ -90,6 +91,35 @@ export function AppContextProvider(props)
             });
           });
     }
+
+    function addMovieToDatabaseHandler(movieDto)
+    {
+        fetch(process.env.API_SERVER_URL,{
+            method: 'POST',
+            body: JSON.stringify(movieDto),
+            headers: {
+                "Content-Type":"application/ld+json"
+            }
+        })
+        .then((response) => {
+           
+            if(response.ok){
+                console.log(response)
+                response.json().then((data) => {
+                    //console.log(data)
+                    return
+                })
+            }else{
+                return Promise.reject(response);
+            }
+        })
+        .catch((error) => {
+            error.json().then((data) => {
+                setErrorMsg(data.errorMessage)
+            });
+          });
+    }
+    
     
     const context = {
         movieListings: movieList,
@@ -101,7 +131,8 @@ export function AppContextProvider(props)
         errorMessage: errorMsg,
         AppStateMessage: appMsg,
         searchForMovie: searchForMovieHandler,
-        getMovieFromThirdPartyApi:getMovieFromThirdPartyApiHandler
+        getMovieFromThirdPartyApi:getMovieFromThirdPartyApiHandler,
+        addMovieToDatabase:addMovieToDatabaseHandler
     }
 
     return (

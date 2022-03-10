@@ -11,8 +11,6 @@ function MovieListingPage({match}) {
     const [isLoading, setIsLoading] = useState(true);
 
     const {movieInDB, movieFrom3rdPartyApi, singleMovieListing, errorMessage, AppStateMessage} = appInfoContext
-
-    console.log(singleMovieListing)
   
     useEffect(() => {
 
