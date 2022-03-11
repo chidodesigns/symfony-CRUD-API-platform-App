@@ -2,6 +2,8 @@
 
 A Symfony 4.4 CRUD functionality application that allows you search for movies and add them to your database.
 
+Application is built using the API Platform. 
+
 ## Running the App
 
 - `composer install`
