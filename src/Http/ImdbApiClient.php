@@ -23,9 +23,9 @@ class ImdbApiClient
         $this->imdbApiKey = $imdbApiKey;
     }
 
-    public function fetchAMovie() :JsonResponse
+    public function fetchAMovie() 
     {
-        
+        //  Decided to handle this functionality on the client side
     }
 
 }
