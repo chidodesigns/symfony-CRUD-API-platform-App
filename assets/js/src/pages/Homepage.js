@@ -17,7 +17,7 @@ function Homepage() {
   return (
     <div>
       
-      <h1 className="display-5 fw-bold text-center py-3">A List Of Movies From The Database </h1>
+      <h1 className="display-5 fw-bold text-center py-3">Latest Movies From Our Collection </h1>
 
       <div className="card-group">
 
@@ -40,6 +40,9 @@ function Homepage() {
                <small className="text-muted">Keywords:{movie.keywords}</small>
              </p>
            </div>
+            {/* @ Todo Add Single View Mode Btn */}
+            {/* @ Todo Edit Mode Btn */}
+            {/* @ Todo Add Delete Btn */}
          </div> 
       ))} 
       
