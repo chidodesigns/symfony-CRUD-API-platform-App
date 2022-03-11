@@ -14,6 +14,7 @@ const AppContext = createContext({
   getMovieFromThirdPartyApiHandler: (imdb) => {},
   addMovieToDatabaseHandler: (movieDto) => {},
   getMoviesFromTheDatabaseHandler: () => {},
+  deleteMovieFromTheDatabaseHandler: () => {}
 });
 
 export function AppContextProvider(props) {
@@ -158,6 +159,38 @@ export function AppContextProvider(props) {
       });
   }
 
+  // @ Todo Finish Off Delete Function Handler
+  function deleteMovieFromTheDatabaseHandler(movieId)
+  {
+    fetch(process.env.API_SERVER_URL, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+         
+          if (response.ok) {
+            response.json().then((data) => {
+              if (data.length > 0) {
+                  setDatabaseMovieList((prevMovieList) => {
+                    return prevMovieList = data
+                });
+              }
+              return;
+            });
+          } else {
+            return Promise.reject(response);
+          }
+        })
+        .catch((error) => {
+          error.json().then((data) => {
+            console.log(error)
+            setErrorMsg(data.errorMessage);
+          });
+        });
+  }
+
   const context = {
     movieListings: movieList,
     databaseMovieListings:databaseMovieList,
@@ -172,6 +205,7 @@ export function AppContextProvider(props) {
     getMovieFromThirdPartyApi: getMovieFromThirdPartyApiHandler,
     addMovieToDatabase: addMovieToDatabaseHandler,
     getAllMoviesFromDatabase: getMoviesFromTheDatabaseHandler,
+    deleteMovieFromDatabase:deleteMovieFromTheDatabaseHandler
   };
 
   return (
