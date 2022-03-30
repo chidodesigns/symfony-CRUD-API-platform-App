@@ -1,0 +1,60 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}Latest Movies From Our Collection
+{% endblock %}
+
+{% block body %}
+	{% if movies %}
+		<table class="table table-striped" id="movies">
+			<thead>
+				<tr>
+					<th>Movie Title</th>
+					<th>IMDB ID</th>
+					<th>Movie Image</th>
+					<th>Movie Keywords</th>
+					<th>Movie Runtime</th>
+					<th>Movie Release Date</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for movie in movies %}
+					<tr>
+						<td>{{ movie.title }}</td>
+						<td>{{ movie.imdbId }}</td>
+						<td style="width: 5%;"><img src={{movie.image}} alt="" style="width: 100%;"></td>
+						<td style="width: 5%;">{{movie.keywords}}</td>
+						<td>{{movie.runtime}}</td>
+						<td>{{movie.releaseDate}}</td>
+						<td>
+							<a href="/movie/{{movie.id}}" class="btn btn-dark">Show</a>
+							<a href="/movie/edit/{{movie.id}}" class="btn btn-light">Edit</a>
+							<a href="#" class="btn btn-danger delete-movie" data-id={{movie.id}}>Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tbody></tbody>
+		</table>
+	{% else %}
+		<p>No movies to display</p>
+	{% endif %}
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+	{# This line of code did not work, with regards to loading this folder #}
+	{# <script src="/js/main.js"></script> #}
+	{# <script src="{{ asset('/public/js/main.js') }}"></script> #}
+		<script>
+const movies = document.getElementById('movies');
+if (movies) {
+movies.addEventListener('click', (e) => {
+if (e.target.className === 'btn btn-danger delete-movie') {
+if (confirm('Are you sure?')) {
+const id = e.target.getAttribute('data-id')
+fetch (`/movie/delete/${id}`, {method: 'DELETE'}).then(res => window.location.reload())
+}
+}
+});
+}
+</script>{% endblock %}

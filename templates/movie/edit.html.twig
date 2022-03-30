@@ -1,0 +1,13 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}Edit Movie{% endblock %}
+
+{% block body %}
+  <a href="/movies" class="btn btn-warning p-2 my-4">
+		Back To Movies
+	</a>
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end(form) }}
+
+{% endblock %}

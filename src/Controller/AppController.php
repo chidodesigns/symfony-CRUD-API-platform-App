@@ -11,7 +11,7 @@ class AppController extends AbstractController
     //  All routes to the homepage will be handled by react 
     
     /**
-     * @Route("/{reactRouting}", name="home", defaults={"reactRouting":null})
+     * @Route("/", name="home", defaults={"reactRouting":null})
      */
     public function index(): Response
     {

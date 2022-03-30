@@ -13,6 +13,9 @@
             "src/Entity/.gitignore"
         ]
     },
+    "ausi/slug-generator": {
+        "version": "v1.1.1"
+    },
     "dama/doctrine-test-bundle": {
         "version": "6.7",
         "recipe": {
@@ -257,6 +260,18 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "sensio/framework-extra-bundle": {
+        "version": "6.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        },
+        "files": [
+            "config/packages/sensio_framework_extra.yaml"
+        ]
+    },
     "symfony/asset": {
         "version": "v4.4.37"
     },
@@ -336,6 +351,9 @@
             ".env"
         ]
     },
+    "symfony/form": {
+        "version": "v4.4.38"
+    },
     "symfony/framework-bundle": {
         "version": "4.4",
         "recipe": {
@@ -372,6 +390,9 @@
     "symfony/inflector": {
         "version": "v4.4.37"
     },
+    "symfony/intl": {
+        "version": "v4.4.38"
+    },
     "symfony/maker-bundle": {
         "version": "1.38",
         "recipe": {
@@ -382,6 +403,9 @@
         }
     },
     "symfony/mime": {
+        "version": "v4.4.37"
+    },
+    "symfony/options-resolver": {
         "version": "v4.4.37"
     },
     "symfony/phpunit-bridge": {
@@ -398,6 +422,12 @@
             "phpunit.xml.dist",
             "tests/bootstrap.php"
         ]
+    },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.25.0"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.25.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.25.0"
@@ -478,6 +508,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.38"
+    },
+    "symfony/string": {
+        "version": "v5.0.0"
     },
     "symfony/translation-contracts": {
         "version": "v2.5.0"

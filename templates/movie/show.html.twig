@@ -1,0 +1,31 @@
+{% extends  'base.html.twig' %}
+
+{% block title %}
+	{{ movie.title }}
+{% endblock %}
+
+{% block body %}
+	<h1>{{ movie.title }}</h1>
+
+	<div class="row align-items-md-stretch">
+		<div class="col-md-6">
+			<div class="h-100 p-5 text-white bg-dark rounded-3">
+				<h2>{{movie.title}}</h2>
+				<hr/>
+				<p>Runtime: {{movie.runtime}} mins</p>
+				<p>Release Date: {{movie.releaseDate}}</p>
+				<p>Keywords: {{movie.keywords}}</p>
+				<p>IMDB ID:{{movie.imdbId}}</p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="h-100 p-5 bg-light border rounded-3 movie_listing_img_holder d-flex justify-content-center">
+				<img src={{movie.image}}class="movie-listing-img" style="width: 80%"/>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<a href="/movies">
+		Back To Movies
+	</a>
+{% endblock %}
